@@ -33,6 +33,7 @@
       const searchBox = document.querySelector("#search");
 
       searchBox.addEventListener("keyup", searchGif);
+      img.addEventListener("click", searchGif);
 
       async function searchGif() {
         searchValue = searchBox.value;
