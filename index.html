@@ -8,13 +8,20 @@
   <body>
     <div id="content">
       <img src="#" class="img" />
-      <!-- <button class="new">New Gif</button> -->
-      <div class="searchContainer">
+
+      <div class="search-box">
         <h1>Search for a gif!</h1>
-        <input type="search" name="gif" id="search" />
+        <button class="btn-search"><i class="fas fa-search"></i></button>
+        <input
+          type="search"
+          name="gif"
+          class="input-search"
+          placeholder="Type to Search..."
+          id="search"
+        />
       </div>
-      <!-- <button class="submit" type="submit">Search Gif</button> -->
     </div>
+
     <script>
       const img = document.querySelector("img");
 
@@ -31,15 +38,8 @@
           });
       };
 
-      // const btn = document.querySelector(".new");
-      // btn.addEventListener("click", loadGif);
-
-      // loadGif();
-
       const searchBox = document.querySelector("#search");
-      // const submit = document.querySelector(".submit");
 
-      // submit.addEventListener("click", searchGif);
       searchBox.addEventListener("keyup", searchGif);
 
       function searchGif() {
@@ -52,7 +52,6 @@
           { mode: "cors" }
         )
           .then(function (response) {
-            // console.log(response.json());
             return response.json();
           })
           .then(function (response) {
