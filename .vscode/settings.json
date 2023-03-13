@@ -1,0 +1,9 @@
+{
+"editor.formatOnSave": true,
+"editor.tokenColorCustomizations": {
+    "comments": "#7e7e7e"
+},
+"[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+}
+}

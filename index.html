@@ -1,0 +1,68 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="content">
+      <img src="#" class="img" />
+      <!-- <button class="new">New Gif</button> -->
+      <div class="searchContainer">
+        <h1>Search for a gif!</h1>
+        <input type="search" name="gif" id="search" />
+      </div>
+      <!-- <button class="submit" type="submit">Search Gif</button> -->
+    </div>
+    <script>
+      const img = document.querySelector("img");
+
+      const loadGif = function () {
+        fetch(
+          "https://api.giphy.com/v1/gifs/translate?api_key=79UXuOFeMHXUT2VZ3RlrDPbVuO7sQSUc&s=cats",
+          { mode: "cors" }
+        )
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (response) {
+            img.src = response.data.images.original.url;
+          });
+      };
+
+      // const btn = document.querySelector(".new");
+      // btn.addEventListener("click", loadGif);
+
+      // loadGif();
+
+      const searchBox = document.querySelector("#search");
+      // const submit = document.querySelector(".submit");
+
+      // submit.addEventListener("click", searchGif);
+      searchBox.addEventListener("keyup", searchGif);
+
+      function searchGif() {
+        searchValue = searchBox.value;
+        if (searchValue === "") {
+          searchValue = "cats";
+        }
+        fetch(
+          `https://api.giphy.com/v1/gifs/translate?api_key=79UXuOFeMHXUT2VZ3RlrDPbVuO7sQSUc&s=${searchValue}`,
+          { mode: "cors" }
+        )
+          .then(function (response) {
+            // console.log(response.json());
+            return response.json();
+          })
+          .then(function (response) {
+            img.src = response.data.images.original.url;
+          })
+          .catch((error) => {
+            console.log("Error", error);
+          });
+      }
+      searchGif();
+    </script>
+  </body>
+</html>
