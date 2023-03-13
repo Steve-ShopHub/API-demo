@@ -268,15 +268,13 @@
     
     img {
         object-fit: scale-down;
-        /* max-width: 50%;
-        max-height: 50%; */
+        max-width: 80vw;
+        max-height: 80vh;
     }
 
-
+#background-image{
+    background-position:20% 20%; 
+    background-size:200px 400px;
 }
 
-/* @media screen and (min-width: 767px) { */
-
-
-
-/* } */
+}
