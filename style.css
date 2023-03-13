@@ -37,10 +37,19 @@
         
 
 }
+
+/* .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+
   .search-box{
     width: fit-content;
     height: fit-content;
     position: relative;
+    margin-top: 50px;
   }
   .input-search{
     height: 50px;
@@ -94,6 +103,11 @@
     border-bottom:1px solid rgba(255,255,255,.5);
     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
   }    
+
+
+  /* .fa-search:before {
+    content: "\f002"
+} */
     
     #content {
         display: flex;
