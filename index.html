@@ -32,14 +32,15 @@
 
       const searchBox = document.querySelector("#search");
 
-      searchBox.addEventListener("keyup", searchGif);
-      img.addEventListener("click", searchGif);
+      searchBox.addEventListener("keyup", searchInputGif);
+      img.addEventListener("click", randomImage);
+
+      let searchValue = randomImage();
 
       async function searchGif() {
-        searchValue = searchBox.value;
-        if (searchValue === "") {
-          searchValue = "cats";
-        }
+        // if (searchValue === "") {
+
+        // }
 
         const response = await fetch(
           `https://api.giphy.com/v1/gifs/translate?api_key=79UXuOFeMHXUT2VZ3RlrDPbVuO7sQSUc&s=${searchValue}`,
@@ -53,6 +54,36 @@
         //   console.log("Error", error);
         // });
       }
+
+      function searchInputGif() {
+        searchValue = searchBox.value;
+
+        searchGif();
+      }
+
+      function randomImage() {
+        // let searchValue = "";
+        const searchArray = [
+          "dog",
+          "cat",
+          "koala",
+          "cute bear",
+          "puppy",
+          "kitten",
+          "seal",
+          "penguin",
+          "alpaca",
+        ];
+        const randomItem =
+          searchArray[Math.floor(Math.random() * searchArray.length)];
+        searchValue === randomItem.toString();
+
+        return searchValue;
+
+        // searchGif();
+      }
+
+      // randomImage();
       searchGif();
     </script>
   </body>
